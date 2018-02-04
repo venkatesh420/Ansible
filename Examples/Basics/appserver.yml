@@ -1,0 +1,11 @@
+---
+- hosts: appserver
+  become: yes
+  tasks:
+    - name: updating packages
+      apt:
+        update_cache: yes
+    - name: installing Tomcat server
+      apt:
+        name: tomcat7
+        state: present
