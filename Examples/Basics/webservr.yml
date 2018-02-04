@@ -1,6 +1,5 @@
 ---
 - hosts: webserver
-# gather_facts: no
   sudo: yes
   task:
   - name: update packages
