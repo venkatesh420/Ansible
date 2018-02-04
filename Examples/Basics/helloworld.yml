@@ -4,3 +4,4 @@
   tasks:
   - name: ping machine Ip's
     ping: 
+    

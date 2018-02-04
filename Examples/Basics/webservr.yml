@@ -1,0 +1,14 @@
+---
+- hosts: webserver
+# gather_facts: no
+  sudo: yes
+  task:
+  - name: update packages
+    apt:
+      update_cache: yes 
+  - name:
+    apt:
+      name: tomcat7
+      state: present
+ 
+
