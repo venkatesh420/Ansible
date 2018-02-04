@@ -7,7 +7,7 @@
       update_cache: yes 
   - name:
     apt:
-      name: tomcat7
+      name: apache2
       state: present
  
 
