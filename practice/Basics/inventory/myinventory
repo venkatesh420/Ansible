@@ -1,0 +1,12 @@
+[ip]
+XXXXX
+XXXXXXXX
+
+[webserver]
+XXXXXXXX pack_name= apache2
+XXXXXXX pack_name=tomcat
+
+
+
+[appserver]
+XXXXXXXX

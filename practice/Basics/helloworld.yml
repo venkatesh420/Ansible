@@ -1,0 +1,7 @@
+---
+- hosts: ip
+  gather_facts: no
+  tasks:
+  - name: ping machine Ip's
+    ping: 
+    
