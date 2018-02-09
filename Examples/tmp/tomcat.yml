@@ -1,0 +1,43 @@
+--- # use variables in playbook not from inventory
+- hosts:
+  vars:
+    package: tomcat7
+    st_to_be_set: absent
+    max_mem: 512
+    per_mem: 256
+    additional_packages:
+      - tomcat7-docs
+      - tomcat7-admin
+      - tomcat7.examples
+  become: yes
+
+  #gather_facts: yes/no
+  tasks:
+  - name: updating packages
+    apt:
+      update_cache: yes
+  - name: installing tomcat
+    apt:
+      name: "{{ package }}"
+    notify: 
+    - restart the tomcat7
+  - name: change default settigg
+    template:
+      src: tomcat7.j2
+      dest: /ect/default/tomcat7
+    notify:
+    - restart the tomcat7
+    when: st_to_be_set == "present"
+  - name: install additional packages
+    apt:
+      name: {{ items }}
+    with_items:
+      {{ additoinal_packages }}
+
+
+  handlers:
+  - name: restart the tomcat7   
+    service:
+      name: "{{ package }}"
+      state: restarted
+    when: st_to_be_set == "present"

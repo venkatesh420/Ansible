@@ -1,0 +1,22 @@
+--- # installing multiple Packages
+- hosts: webserver
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: installing tree package
+    apt:
+      name: tree
+      state: present
+  - name: installing git Package
+    apt:
+      name: git
+      state: present
+  - name: instaling nano package
+    apt:
+      name: nano
+      state: present
+  
+  handlers:
+  - name: restart the service
+    service:
+      name: 

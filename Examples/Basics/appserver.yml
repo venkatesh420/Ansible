@@ -2,6 +2,14 @@
 - hosts: appserver
   become: yes
   tasks:
+  - name:
+    apt:
+      name: apache2
+      state: present
+  - name: starting the apache2 service
+    service: 
+      name: apache2
+      state: started
     - name: updating packages
       apt:
         update_cache: yes
@@ -9,3 +17,10 @@
       apt:
         name: tomcat7
         state: present
+    - name: download jenklins
+      get_url:
+        dest: /var/lib/tomcat7/webapps
+        url: <>
+    - name: copying the path
+      copy:
+        

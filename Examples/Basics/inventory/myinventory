@@ -3,7 +3,8 @@ XXXXX
 XXXXXXXX
 
 [webserver]
-XXXXXXXX
+XXXXXXXX pack_name= apache2
+XXXXXXX pack_name=tomcat
 
 
 
